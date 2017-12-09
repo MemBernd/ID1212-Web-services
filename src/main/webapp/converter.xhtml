@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body>
+        <h:form>
+            Convert from:
+            <h:selectOneMenu value="#{currencyConverter.from}">
+                <f:selectItems value="#{currencyConverter.currencies}" />
+            </h:selectOneMenu>
+            To:
+            <h:selectOneMenu value="#{currencyConverter.to}">
+                <f:selectItems value="#{currencyConverter.currencies}" />
+            </h:selectOneMenu>
+            <p>
+                <h:outputLabel for="amountFrom" value="Amount to deposit or withdraw: "/>
+                <h:inputText id="amountFrom" value="#{currencyConverter.amountFrom}"/>
+            </p>
+            <h:commandButton value="convert" action="#{acctManager.convert}"/>
+        </h:form>
+        <p>
+            <h:outputLabel for="amountTo" rendered="#{currencyConverter.amountTo != 0.0}"  value="Converted amount: "/>
+            <h:outputText id="amountTo" rendered="#{currencyConverter.amountTo != 0.0}" value="#{currencyConverter.amountTo}"/>
+        </p>
+    </body>
+</html>
