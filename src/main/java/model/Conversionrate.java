@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package storage;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -25,10 +25,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 @NamedQueries({
     @NamedQuery(name = "Conversionrate.findAll", query = "SELECT c FROM Conversionrate c")
-    , @NamedQuery(name = "Conversionrate.findByFrom", query = "SELECT c FROM Conversionrate c WHERE c.conversionratePK.from = :from")
-    , @NamedQuery(name = "Conversionrate.findByTo", query = "SELECT c FROM Conversionrate c WHERE c.conversionratePK.to = :to")
-    , @NamedQuery(name = "Conversionrate.findByRate", query = "SELECT c FROM Conversionrate c WHERE c.rate = :rate")
-    , @NamedQuery(name = "Conversionrate.findRate", query = "Select c From Conversionrate c Where c.conversionratePK.from = :from And c.conversionratePK.to = :to")})
+    , @NamedQuery(name = "Conversionrate.findByFromCurrency", query = "SELECT c FROM Conversionrate c WHERE c.conversionratePK.fromCurrency = :fromCurrency")
+    , @NamedQuery(name = "Conversionrate.findByToCurrency", query = "SELECT c FROM Conversionrate c WHERE c.conversionratePK.toCurrency = :toCurrency")
+    , @NamedQuery(name = "Conversionrate.findByRate", query = "SELECT c FROM Conversionrate c WHERE c.rate = :rate")})
 public class Conversionrate implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -37,10 +36,10 @@ public class Conversionrate implements Serializable {
     // @Max(value=?)  @Min(value=?)//if you know range of your decimal fields consider using these annotations to enforce field validation
     @Column(name = "rate")
     private Float rate;
-    @JoinColumn(name = "from", referencedColumnName = "name", insertable = false, updatable = false)
+    @JoinColumn(name = "fromCurrency", referencedColumnName = "name", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Currency currency;
-    @JoinColumn(name = "to", referencedColumnName = "name", insertable = false, updatable = false)
+    @JoinColumn(name = "toCurrency", referencedColumnName = "name", insertable = false, updatable = false)
     @ManyToOne(optional = false)
     private Currency currency1;
 
@@ -51,8 +50,8 @@ public class Conversionrate implements Serializable {
         this.conversionratePK = conversionratePK;
     }
 
-    public Conversionrate(String from, String to) {
-        this.conversionratePK = new ConversionratePK(from, to);
+    public Conversionrate(String fromCurrency, String toCurrency) {
+        this.conversionratePK = new ConversionratePK(fromCurrency, toCurrency);
     }
 
     public ConversionratePK getConversionratePK() {
@@ -109,7 +108,7 @@ public class Conversionrate implements Serializable {
 
     @Override
     public String toString() {
-        return "storage.Conversionrate[ conversionratePK=" + conversionratePK + " ]";
+        return "model.Conversionrate[ conversionratePK=" + conversionratePK + " ]";
     }
     
 }

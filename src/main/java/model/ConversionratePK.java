@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package storage;
+package model;
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -22,43 +22,43 @@ public class ConversionratePK implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
-    @Column(name = "from")
-    private String from;
+    @Column(name = "fromCurrency")
+    private String fromCurrency;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 20)
-    @Column(name = "to")
-    private String to;
+    @Column(name = "toCurrency")
+    private String toCurrency;
 
     public ConversionratePK() {
     }
 
-    public ConversionratePK(String from, String to) {
-        this.from = from;
-        this.to = to;
+    public ConversionratePK(String fromCurrency, String toCurrency) {
+        this.fromCurrency = fromCurrency;
+        this.toCurrency = toCurrency;
     }
 
-    public String getFrom() {
-        return from;
+    public String getFromCurrency() {
+        return fromCurrency;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setFromCurrency(String fromCurrency) {
+        this.fromCurrency = fromCurrency;
     }
 
-    public String getTo() {
-        return to;
+    public String getToCurrency() {
+        return toCurrency;
     }
 
-    public void setTo(String to) {
-        this.to = to;
+    public void setToCurrency(String toCurrency) {
+        this.toCurrency = toCurrency;
     }
 
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (from != null ? from.hashCode() : 0);
-        hash += (to != null ? to.hashCode() : 0);
+        hash += (fromCurrency != null ? fromCurrency.hashCode() : 0);
+        hash += (toCurrency != null ? toCurrency.hashCode() : 0);
         return hash;
     }
 
@@ -69,10 +69,10 @@ public class ConversionratePK implements Serializable {
             return false;
         }
         ConversionratePK other = (ConversionratePK) object;
-        if ((this.from == null && other.from != null) || (this.from != null && !this.from.equals(other.from))) {
+        if ((this.fromCurrency == null && other.fromCurrency != null) || (this.fromCurrency != null && !this.fromCurrency.equals(other.fromCurrency))) {
             return false;
         }
-        if ((this.to == null && other.to != null) || (this.to != null && !this.to.equals(other.to))) {
+        if ((this.toCurrency == null && other.toCurrency != null) || (this.toCurrency != null && !this.toCurrency.equals(other.toCurrency))) {
             return false;
         }
         return true;
@@ -80,7 +80,7 @@ public class ConversionratePK implements Serializable {
 
     @Override
     public String toString() {
-        return "storage.ConversionratePK[ from=" + from + ", to=" + to + " ]";
+        return "model.ConversionratePK[ fromCurrency=" + fromCurrency + ", toCurrency=" + toCurrency + " ]";
     }
     
 }

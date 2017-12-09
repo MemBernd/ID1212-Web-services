@@ -23,10 +23,10 @@ and open the template in the editor.
                 <f:selectItems value="#{currencyConverter.currencies}" />
             </h:selectOneMenu>
             <p>
-                <h:outputLabel for="amountFrom" value="Amount to deposit or withdraw: "/>
+                <h:outputLabel for="amountFrom" value="Amount to convert: "/>
                 <h:inputText id="amountFrom" value="#{currencyConverter.amountFrom}"/>
             </p>
-            <h:commandButton value="convert" action="#{acctManager.convert}"/>
+            <h:commandButton value="convert" action="#{currencyConverter.convert}"/>
         </h:form>
         <p>
             <h:outputLabel for="amountTo" rendered="#{currencyConverter.amountTo != 0.0}"  value="Converted amount: "/>

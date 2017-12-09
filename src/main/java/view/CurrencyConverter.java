@@ -33,8 +33,13 @@ public class CurrencyConverter implements Serializable {
      * Creates a new instance of CurrencyConverter
      */
     public CurrencyConverter() {
+        
     }
     
+    public void convert() {
+        System.out.println("from - to: " + from + "   " + to);
+        amountTo = controller.convert(from, to, amountFrom);
+    }
     
     /**
      * @return the controller
@@ -101,9 +106,7 @@ public class CurrencyConverter implements Serializable {
      * @return the currencies
      */
     public List<String> getCurrencies() {
-        currencies = new ArrayList<String>();
-        currencies.add("euros");
-        currencies.add("sek");
+        currencies = controller.listCurrencies();
         return currencies;
     }
 
