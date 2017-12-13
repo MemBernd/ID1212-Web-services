@@ -38,10 +38,10 @@ public class Controller {
     
     public float convert(String from, String to, float amount){
         try {
-        float rate = storage.getRate(new ConversionratePK(from, to)).getRate();
-        return amount * rate;
+            float rate = storage.getRate(new ConversionratePK(from, to)).getRate();
+            return amount * rate;
         } catch (Exception e) {
-            return -1;
+            return amount;
         }
     }
 }
