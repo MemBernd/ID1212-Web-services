@@ -37,7 +37,7 @@ public class CurrencyConverter implements Serializable {
     }
     
     public void convert() {
-        System.out.println("from - to: " + from + "   " + to);
+        //System.out.println("from - to: " + from + "   " + to);
         amountTo = controller.convert(from, to, amountFrom);
     }
     

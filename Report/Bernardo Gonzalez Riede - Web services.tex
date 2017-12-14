@@ -37,7 +37,7 @@
 \section{Introduction}
 Goals:
 \begin{itemize}
-	\item Develop a three-tier web-based applciation using frameworks
+	\item Develop a three-tier web-based application using frameworks
 	\item Deploy and run a web-based application on an application server.
 \end{itemize}
 
@@ -60,7 +60,13 @@ Link to public Github repository with code:
 \href{https://github.com/MemBernd/ID1212-Web-services}{https://github.com/MemBernd/ID1212-Web-services}
 
 \subsection{Layering}
-
+The layering of the application is divided into four layers:
+\begin{itemize}
+	\item The _view_ holds the JSF page.
+	\item The _controller_ holds a ``normal'' java class.
+	\item The _model_ holds the JPA entities.
+	\item The _storage_ holds the EJB, a class responsible for connecting to the MySQL database.
+\end{itemize}
 
 
 %subsection covering persistent storage stuff
@@ -92,10 +98,6 @@ The first table acts as a catalog, holding the different currencies, while the s
 
 
 
-%subsection about permission management
-\subsection{}
-
-
 \subsection{Client side}
 The user can access the application through a browser, which presents him with the jsf (see \ref{fig:ui}).
 The user is able to select between 4 currencies to convert between them.
@@ -111,16 +113,18 @@ In case he selects the same currency, the application will return, hence show, t
 
 %subsection discussion
 \section{Discussion}
-
+Through the use of comboboxes the incorrect input is limited to the use of non digits in the currency amount.
+Through the use of Beans, this behaviour is captured instantly and the user is shown a messaeg similar to:
+\\_ 'XX' must be a number consisting of one or more digits._
 
 %subsection comments
 \section{Comments About the Course}
 
-The time invested in this project were almost 12 hours.
+It tool around
 \begin{itemize}
-        \item 7h 35 min for coding.
-        \item 1h 50 min for the report.
-        \item 2h 40 min watching videos, taking notes and thinking about how to tackle the problem.
+        \item  for coding.
+        \item for the report.
+        \item  watching videos, taking notes and thinking about how to tackle the problem.
 \end{itemize}
 
 
