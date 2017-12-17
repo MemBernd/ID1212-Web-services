@@ -41,11 +41,5 @@ public class CurrencyDAO {
         if(conv == null) 
             System.err.println("nothing found");
         return conv;
-        //sTypedQuery<Conversionrate> setParameter = em.createNamedQuery("Conversionrate.findRate", Conversionrate.class)
-        //        .setParameter("from", "euro").setParameter("to", "sek");
-        //System.out.println(setParameter.getParameters().size());
-        //return em.createNamedQuery("Conversionrate.findByFrom", Conversionrate.class).setParameter("from", pk.getFrom()).getSingleResult();
-        //Conversionrate test = em.find(Conversionrate.class, pk);
-        //return test;
     }
 }
